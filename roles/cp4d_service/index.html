@@ -1,0 +1,1304 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>cp4d_service - MAS DevOps Ansible Collection</title>
+
+    <!-- Pure CSS (https://pure-css.github.io/) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/theme.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="../../js/theme.js"></script>
+
+    <!-- Carbon theme zones (white, g10, g90, g100) -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css">
+
+    <!-- The Carbon web-components/framework -->
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.15.0/ui-shell.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.15.0/accordion.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.15.0/breadcrumb.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.15.0/select.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.15.0/tabs.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.15.0/search.min.js"></script>
+
+    <!-- HighlightJS code formatting support -->
+    <link rel="stylesheet" id="hljs-light" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <link rel="stylesheet" id="hljs-dark" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- Required by MkDocs search -->
+    <script>var base_url = "../..";</script>
+
+    <!-- User defined extras -->
+    
+    
+
+    
+
+    
+    <script src="../../search/main.js"></script>
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: black; }
+        </style></head>
+
+  <body class="md-grid" data-theme-default="g90">
+    <!-- Header -->
+    <cds-header aria-label="MAS DevOps Ansible Collection" class="md-header">
+      <cds-header-menu-button button-label-active="Close menu" button-label-inactive="Open menu"></cds-header-menu-button>
+      <cds-header-name href="../.." prefix="IBM">MAS DevOps Ansible Collection</cds-header-name>
+      <cds-header-nav menu-bar-label="IBM MAS DevOps Ansible Collection">
+          <cds-header-nav-item is-active="" target="" href="">Ansible</cds-header-nav-item>
+          <cds-header-nav-item target="" href="https://ibm-mas.github.io/cli/">CLI</cds-header-nav-item>
+      </cds-header-nav>
+
+      <div class="cds--header__global">
+<div class="md-theme-toggle" data-theme-default="g90">
+  <button class="md-theme-toggle__button" aria-label="Toggle theme" title="Toggle theme">
+    <svg class="md-theme-toggle__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"></path>
+    </svg>
+  </button>
+  <div class="md-theme-toggle__menu" hidden="">
+    <button class="md-theme-toggle__option" data-theme="white">
+      <span class="md-theme-toggle__label">Light</span>
+      <span class="md-theme-toggle__preview md-theme-toggle__preview--white"></span>
+    </button>
+    <button class="md-theme-toggle__option" data-theme="g10">
+      <span class="md-theme-toggle__label">Light Gray</span>
+      <span class="md-theme-toggle__preview md-theme-toggle__preview--g10"></span>
+    </button>
+    <button class="md-theme-toggle__option" data-theme="g90">
+      <span class="md-theme-toggle__label">Dark Gray</span>
+      <span class="md-theme-toggle__preview md-theme-toggle__preview--g90"></span>
+    </button>
+    <button class="md-theme-toggle__option" data-theme="g100">
+      <span class="md-theme-toggle__label">Dark</span>
+      <span class="md-theme-toggle__preview md-theme-toggle__preview--g100"></span>
+    </button>
+  </div>
+</div>
+        <cds-search id="header-search" label-text="Search" cds-search-input="search-event" expandable=""></cds-search>
+      </div>
+      <script>
+        var el = document.getElementById("header-search");
+        el.addEventListener("cds-search-input", function (ev) {
+          console.info(ev.detail.value)
+          document.getElementById("header-search-value").setAttribute("value", ev.detail.value);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter') {
+            location.href="../../search.html?q=" + document.querySelector("#header-search").shadowRoot.querySelector("#input").value;
+          }
+        });
+      </script>
+
+      
+    </cds-header>
+
+    <!-- Main container with three-column layout -->
+    <div class="md-container">
+      <!-- Left sidebar - Navigation -->
+      <aside class="md-sidebar md-sidebar--primary" data-md-component="sidebar">
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+            <cds-side-nav aria-label="Side navigation">
+              <cds-side-nav-items>
+                
+                  
+  <cds-side-nav-menu title="General Information">
+    
+      
+  <cds-side-nav-menu-item href="../..">
+    Home
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../execution-environment/">
+    Ansible Automation Platform
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+                  
+  <cds-side-nav-menu title="Playbooks">
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/ocp/">
+    OCP
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/cp4d/">
+    Install Cloud Pak For Data
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/aiservice/">
+    Install AI Service
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-core/">
+    Install Core
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-iot/">
+    Add IoT
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-manage/">
+    Add Manage
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-monitor/">
+    Add Monitor
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-optimizer/">
+    Add Optimizer
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-predict/">
+    Add Predict
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-visualinspection/">
+    Add Visual Inspection
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-facilities/">
+    Add Real Estate and Facilities
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-update/">
+    Update
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/mas-upgrade/">
+    Upgrade
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/backup-restore/">
+    Backup and Restore
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../../playbooks/legacy-backup-restore/">
+    Legacy Backup and Restore
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+                  
+  <cds-side-nav-menu title="Roles: OCP Mgmt">
+    
+      
+  <cds-side-nav-menu-item href="../ocp_cluster_monitoring/">
+    ocp_cluster_monitoring
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_config/">
+    ocp_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_deprovision/">
+    ocp_deprovision
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_efs/">
+    ocp_efs
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_github_oauth/">
+    ocp_github_oauth
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_login/">
+    ocp_login
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_node_config/">
+    ocp_node_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_provision/">
+    ocp_provision
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_roks_upgrade_registry_storage/">
+    ocp_roks_upgrade_registry_storage
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_upgrade/">
+    ocp_upgrade
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_verify/">
+    ocp_verify
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+                  
+  <cds-side-nav-menu title="Roles: Dependency Mgmt" active="" expanded="">
+    
+      
+  <cds-side-nav-menu-item href="../aws_bucket_access_point/">
+    aws_bucket_access_point
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../aws_documentdb_user/">
+    aws_documentdb_user
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../aws_policy/">
+    aws_policy
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../aws_route53/">
+    aws_route53
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../aws_user_creation/">
+    aws_user_creation
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../aws_vpc/">
+    aws_vpc
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../cert_manager/">
+    cert_manager
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../cis/">
+    cis
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../configure_manage_eventstreams/">
+    configure_manage_eventstreams
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../cos/">
+    cos
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../cos_bucket/">
+    cos_bucket
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../cp4d_admin_pwd_update/">
+    cp4d_admin_pwd_update
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../cp4d/">
+    cp4d
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="./" active="" expanded="">
+    cp4d_service
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../db2/">
+    db2
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../dro/">
+    dro
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../eck/">
+    eck
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../grafana/">
+    grafana
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ibm_catalogs/">
+    ibm_catalogs
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../kafka/">
+    kafka
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../longhorn/">
+    longhorn
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../nvidia_gpu/">
+    nvidia_gpu
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../mongodb/">
+    mongodb
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocs/">
+    ocs
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../sls/">
+    sls
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../turbonomic/">
+    turbonomic
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+                  
+  <cds-side-nav-menu title="Roles: Image Mirroring">
+    
+      
+  <cds-side-nav-menu-item href="../mirror_case_prepare/">
+    mirror_case_prepare
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../mirror_extras_prepare/">
+    mirror_extras_prepare
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../mirror_images/">
+    mirror_images
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../mirror_ocp/">
+    mirror_ocp
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_idms/">
+    ocp_idms
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../ocp_simulate_disconnected_network/">
+    ocp_simulate_disconnected_network
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../registry/">
+    registry
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+                  
+  <cds-side-nav-menu title="Roles: Suite Mgmt">
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_config/">
+    suite_app_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_install/">
+    suite_app_install
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_uninstall/">
+    suite_app_uninstall
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_upgrade/">
+    suite_app_upgrade
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_rollback/">
+    suite_app_rollback
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_backup/">
+    suite_app_backup
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_app_restore/">
+    suite_app_restore
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_certs/">
+    suite_certs
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_config/">
+    suite_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_db2_setup_for_manage/">
+    suite_db2_setup_for_manage
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_db2_setup_for_facilities/">
+    suite_db2_setup_for_facilities
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_dns/">
+    suite_dns
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_install/">
+    suite_install
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_attachments_config/">
+    suite_manage_attachments_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_birt_report_config/">
+    suite_manage_birt_report_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_bim_config/">
+    suite_manage_bim_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_customer_files_config/">
+    suite_manage_customer_files_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_imagestitching_config/">
+    suite_manage_imagestitching_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_import_certs_config/">
+    suite_manage_import_certs_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_load_dbc_scripts/">
+    suite_manage_load_dbc_scripts
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_logging_config/">
+    suite_manage_logging_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_manage_pvc_config/">
+    suite_manage_pvc_config
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_uninstall/">
+    suite_uninstall
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_upgrade/">
+    suite_upgrade
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_rollback/">
+    suite_rollback
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_verify/">
+    suite_verify
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_backup/">
+    suite_backup
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../suite_restore/">
+    suite_restore
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+                  
+  <cds-side-nav-menu title="Roles: Utilities">
+    
+      
+  <cds-side-nav-menu-item href="../ansible_version_check/">
+    ansible_version_check
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../entitlement_key_rotation/">
+    entitlement_key_rotation
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../gencfg_jdbc/">
+    gencfg_jdbc
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../gencfg_watsonstudio/">
+    gencfg_watsonstudio
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../gencfg_workspace/">
+    gencfg_workspace
+  </cds-side-nav-menu-item>
+
+    
+      
+  <cds-side-nav-menu-item href="../gencfg_mongo/">
+    gencfg_mongo
+  </cds-side-nav-menu-item>
+
+    
+  </cds-side-nav-menu>
+
+                
+              </cds-side-nav-items>
+            </cds-side-nav>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main content area -->
+      <div class="md-content" data-md-component="content">
+        <article class="md-content__inner">
+          <!-- Breadcrumbs -->
+          <div class="md-breadcrumbs"><cds-breadcrumb no-trailing-slash="">
+  <cds-breadcrumb-item>
+    <cds-breadcrumb-link href="../..">Home</cds-breadcrumb-link>
+  </cds-breadcrumb-item>
+      <cds-breadcrumb-item>Roles: Dependency Mgmt</cds-breadcrumb-item>
+  <cds-breadcrumb-item>
+    <cds-breadcrumb-link href="#cp4d_service">cp4d_service</cds-breadcrumb-link>
+  </cds-breadcrumb-item>
+
+  <cds-breadcrumb-item aria-current="page">
+    <cds-select id="breadcrumbs-toc" inline="" placeholder="..." oninput="changeAnchor(this.value)">
+    
+    
+      <cds-select-item value="#role-variables-general">Role Variables - General</cds-select-item>
+    
+      <cds-select-item value="#role-variables-installation">Role Variables - Installation</cds-select-item>
+    
+      <cds-select-item value="#role-variables-watson-studio">Role Variables - Watson Studio</cds-select-item>
+    
+      <cds-select-item value="#role-variables-mas-configuration-generation">Role Variables - MAS Configuration Generation</cds-select-item>
+    
+      <cds-select-item value="#example-playbook">Example Playbook</cds-select-item>
+    
+      <cds-select-item value="#license">License</cds-select-item>
+    
+    </cds-select>
+  </cds-breadcrumb-item>
+</cds-breadcrumb>
+          </div>
+
+          <!-- Page content -->
+          <div class="rst-content">
+            
+            <h1 id="cp4d_service">cp4d_service<a class="headerlink" href="#cp4d_service" title="Permanent link">¤</a></h1>
+<p>Install or upgrade a chosen CloudPak for Data service.  Currently supported Cloud Pak for Data release versions supported are:</p>
+<ul>
+<li>5.1.3</li>
+<li>5.2.0</li>
+</ul>
+<p>The role will automatically install the corresponding CPD service operator channel and custom resource version associated to the chosen Cloud Pak for Data release version.</p>
+<p>For more information about the specific CPD services channels and versions associated to a particular Cloud Pak for Data release can be found <a href="https://github.ibm.com/PrivateCloud/olm-utils/tree/master/ansible-play/config-vars">here</a>.</p>
+<p>Services Supported
+These services can be deployed and configured using this role:</p>
+<ul>
+<li><a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=services-watson-studio">Watson Studio</a> required by <a href="https://www.ibm.com/docs/en/mas-cd/mhmpmh-and-p-u/continuous-delivery">Predict</a></li>
+<li><a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=services-watson-machine-learning">Watson Machine Learning</a> required by <a href="https://www.ibm.com/docs/en/mas-cd/mhmpmh-and-p-u/continuous-delivery">Predict</a></li>
+<li><a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=services-analytics">Analytics Services (Apache Spark)</a> required by <a href="https://www.ibm.com/docs/en/mas-cd/mhmpmh-and-p-u/continuous-delivery">Predict</a></li>
+<li><a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=analytics-installing">Cognos Analytics</a> optional dependency for <a href="https://www.ibm.com/docs/en/mas-cd/maximo-manage">Manage application</a></li>
+</ul>
+<p>Upgrade
+This role also supports seamlessly CPD services minor version upgrades, as well as patch version upgrades.  All you need to do is to define <code>cpd_product_version</code> variable to the version you target to upgrade and run this role for a particular CPD service.  It's important that before you upgrade CPD services, the CPD Control Plane/Zen is also upgraded to the same release version.</p>
+<p>For more information about IBM Cloud Pak for Data upgrade process, refer to the <a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=upgrading">CPD official documentation</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Application Support</p>
+<p>For more information on how Predict and HP Utilities make use of Watson Studio, refer to <a href="https://www.ibm.com/docs/en/mas-cd/mhmpmh-and-p-u/continuous-delivery?topic=administering-products">Predict/HP Utilities documentation</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The reconcile of many CP4D resources will be marked as Failed multiple times during initial installation, these are <strong>misleading status updates</strong>, the install is just really slow and the operators can not properly handle this.  For example, if you are watching the install of CCS you will see that each <strong>rabbitmq-ha</strong> pod takes 10-15 minutes to start up and it looks like there is a problem because the pod log will just stop at a certain point.  If you see something like this as the last message in the pod log <code>WAL: ra_log_wal init, open tbls: ra_log_open_mem_tables, closed tbls: ra_log_closed_mem_tables</code> be assured that there's nothing wrong, it's just there's a long delay between that message and the next (<code>starting system coordination</code>) being logged.</p>
+</div>
+<h2 id="role-variables-general">Role Variables - General<a class="headerlink" href="#role-variables-general" title="Permanent link">¤</a></h2>
+<h3 id="watson-studio">Watson Studio<a class="headerlink" href="#watson-studio" title="Permanent link">¤</a></h3>
+<p>Subscriptions related to Watson Studio:</p>
+<ul>
+<li><strong>cpd-platform-operator</strong></li>
+<li><strong>ibm-cpd-wsl</strong></li>
+<li><strong>ibm-cpd-ccs</strong></li>
+<li><strong>ibm-cpd-datarefinery</strong></li>
+<li><strong>ibm-cpd-ws-runtimes</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Search Engine Dependency</p>
+<ul>
+<li><strong>CPD 5.1.3</strong>: Uses <strong>Elasticsearch</strong> operator (<code>ibm-elasticsearch-operator</code>)</li>
+<li><strong>CPD 5.2.0</strong>: Uses <strong>OpenSearch</strong> operator (<code>ibm-opensearch-operator</code>)</li>
+</ul>
+</div>
+<p>Watson Studio is made up of many moving parts across multiple namespaces.</p>
+<p>In the <strong>ibm-cpd-operators</strong> namespace:</p>
+<p><strong>For CPD 5.1.3:</strong></p>
+<pre><code class="language-bash">oc -n ibm-cpd-operators get deployments
+NAME                                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ibm-cpd-ccs-operator                                   1/1     1            1           83m
+ibm-cpd-datarefinery-operator                          1/1     1            1           83m
+ibm-cpd-ws-operator                                    1/1     1            1           83m
+ibm-cpd-ws-runtimes-operator                           1/1     1            1           83m
+ibm-elasticsearch-operator-ibm-es-controller-manager   1/1     1            1           83m
+</code></pre>
+<p><strong>For CPD 5.2.0:</strong></p>
+<pre><code class="language-bash">oc -n ibm-cpd-operators get deployments
+NAME                                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ibm-cpd-ccs-operator                                   1/1     1            1           83m
+ibm-cpd-datarefinery-operator                          1/1     1            1           83m
+ibm-cpd-ws-operator                                    1/1     1            1           83m
+ibm-cpd-ws-runtimes-operator                           1/1     1            1           83m
+ibm-opensearch-operator-controller-manager             1/1     1            1           83m
+</code></pre>
+<p>In the <strong>ibm-cpd</strong> namespace:</p>
+<pre><code class="language-bash">oc -n ibm-cpd get ccs,ws,datarefinery,notebookruntimes,deployments,sts
+NAME                         VERSION   RECONCILED   STATUS      AGE
+ccs.ccs.cpd.ibm.com/ccs-cr   9.0.0     9.0.0        Completed   82m
+
+NAME                      VERSION   RECONCILED   STATUS      AGE
+ws.ws.cpd.ibm.com/ws-cr   9.0.0     9.0.0        Completed   83m
+
+NAME                                                    VERSION   RECONCILED   STATUS      AGE
+datarefinery.datarefinery.cpd.ibm.com/datarefinery-cr   9.0.0     9.0.0        Completed   36m
+
+NAME                                                       NLP MODELS   VERSION   RECONCILED   STATUS      AGE
+notebookruntime.ws.cpd.ibm.com/ibm-cpd-ws-runtime-241-py                9.0.0     9.0.0        Completed   22m
+
+NAME                                                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/asset-files-api                              1/1     1            1           60m
+deployment.apps/ax-cdsx-jupyter-notebooks-converter-deploy   1/1     1            1           15m
+deployment.apps/ax-cdsx-notebooks-job-manager-deploy         1/1     1            1           15m
+deployment.apps/ax-environments-api-deploy                   1/1     1            1           53m
+deployment.apps/ax-environments-ui-deploy                    1/1     1            1           53m
+deployment.apps/ax-wdp-notebooks-api-deploy                  1/1     1            1           15m
+deployment.apps/ax-ws-notebooks-ui-deploy                    1/1     1            1           15m
+deployment.apps/catalog-api                                  2/2     2            2           69m
+deployment.apps/dataview-api-service                         1/1     1            1           48m
+deployment.apps/dc-main                                      1/1     1            1           65m
+deployment.apps/event-logger-api                             1/1     1            1           59m
+deployment.apps/ibm-0100-model-viewer-prod                   1/1     1            1           14m
+deployment.apps/jobs-api                                     1/1     1            1           49m
+deployment.apps/jobs-ui                                      1/1     1            1           49m
+deployment.apps/ngp-projects-api                             1/1     1            1           60m
+deployment.apps/portal-catalog                               1/1     1            1           65m
+deployment.apps/portal-common-api                            1/1     1            1           60m
+deployment.apps/portal-job-manager                           1/1     1            1           60m
+deployment.apps/portal-main                                  1/1     1            1           60m
+deployment.apps/portal-ml-dl                                 1/1     1            1           14m
+deployment.apps/portal-notifications                         1/1     1            1           60m
+deployment.apps/portal-projects                              1/1     1            1           60m
+deployment.apps/redis-ha-haproxy                             1/1     1            1           78m
+deployment.apps/runtime-assemblies-operator                  1/1     1            1           59m
+deployment.apps/runtime-manager-api                          1/1     1            1           59m
+deployment.apps/spaces                                       1/1     1            1           48m
+deployment.apps/task-credentials                             1/1     1            1           48m
+deployment.apps/wdp-connect-connection                       1/1     1            1           66m
+deployment.apps/wdp-connect-connector                        1/1     1            1           66m
+deployment.apps/wdp-connect-flight                           1/1     1            1           66m
+deployment.apps/wdp-dataprep                                 1/1     1            1           29m
+deployment.apps/wdp-dataview                                 1/1     1            1           48m
+deployment.apps/wdp-shaper                                   1/1     1            1           29m
+deployment.apps/wkc-search                                   1/1     1            1           66m
+deployment.apps/wml-main                                     1/1     1            1           48m
+
+NAME                                                         READY   AGE
+statefulset.apps/elasticsea-0ac3-ib-6fb9-es-server-esnodes   3/3     74m
+statefulset.apps/rabbitmq-ha                                 3/3     79m
+statefulset.apps/redis-ha-server                             3/3     79m
+statefulset.apps/wdp-couchdb                                 3/3     79m
+</code></pre>
+<h3 id="watson-machine-learning">Watson Machine Learning<a class="headerlink" href="#watson-machine-learning" title="Permanent link">¤</a></h3>
+<p>Subscriptions related to Watson Machine Learning:</p>
+<ul>
+<li><strong>cpd-platform-operator</strong></li>
+<li><strong>ibm-cpd-wml</strong></li>
+<li><strong>ibm-cpd-ccs</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Search Engine Dependency</p>
+<ul>
+<li><strong>CPD 5.1.3</strong>: Uses <strong>Elasticsearch</strong> operator (<code>ibm-elasticsearch-operator</code>)</li>
+<li><strong>CPD 5.2.0</strong>: Uses <strong>OpenSearch</strong> operator (<code>ibm-opensearch-operator</code>)</li>
+</ul>
+</div>
+<p>Watson Machine Learning is made up of many moving parts across multiple namespaces.</p>
+<p>In the <strong>ibm-cpd-operators</strong> namespace:</p>
+<p><strong>For CPD 5.1.3:</strong></p>
+<pre><code class="language-bash">oc -n ibm-cpd-operators get deployments
+NAME                                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ibm-cpd-ccs-operator                                   1/1     1            1           134m
+ibm-cpd-datarefinery-operator                          1/1     1            1           134m
+ibm-cpd-wml-operator                                   1/1     1            1           49m
+ibm-elasticsearch-operator-ibm-es-controller-manager   1/1     1            1           134m
+</code></pre>
+<p><strong>For CPD 5.2.0:</strong></p>
+<pre><code class="language-bash">oc -n ibm-cpd-operators get deployments
+NAME                                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ibm-cpd-ccs-operator                                   1/1     1            1           134m
+ibm-cpd-datarefinery-operator                          1/1     1            1           134m
+ibm-cpd-wml-operator                                   1/1     1            1           49m
+ibm-opensearch-operator-controller-manager             1/1     1            1           134m
+</code></pre>
+<p>In the <strong>ibm-cpd</strong> namespace:</p>
+<pre><code class="language-bash">oc -n ibm-cpd get ccs,wmlbase,deployments,sts
+NAME                         VERSION   RECONCILED   STATUS      AGE
+ccs.ccs.cpd.ibm.com/ccs-cr   9.0.0     9.0.0        Completed   133m
+
+NAME                             VERSION   BUILD       STATUS      RECONCILED   AGE
+wmlbase.wml.cpd.ibm.com/wml-cr   5.0.0     5.0.0-918   Completed   5.0.0        50m
+
+NAME                                                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wml-deployment-envoy                         1/1     1            1           23m
+deployment.apps/wml-deployment-manager                       1/1     1            1           19m
+deployment.apps/wml-main                                     1/1     1            1           99m
+deployment.apps/wml-repositoryv4                             1/1     1            1           16m
+deployment.apps/wmltraining                                  1/1     1            1           15m
+deployment.apps/wmltrainingorchestrator                      1/1     1            1           14m
+
+NAME                                                         READY   AGE
+statefulset.apps/wml-cpd-etcd                                3/3     26m
+statefulset.apps/wml-deployment-agent                        1/1     21m
+</code></pre>
+<h3 id="analytics-engine">Analytics Engine<a class="headerlink" href="#analytics-engine" title="Permanent link">¤</a></h3>
+<p>Subscriptions related to Analytics Engine:</p>
+<ul>
+<li><strong>cpd-platform-operator</strong></li>
+<li><strong>analyticsengine-operator</strong></li>
+</ul>
+<p>Analytics Engine is made up of many moving parts across multiple namespaces.</p>
+<p>In the <strong>ibm-cpd-operators</strong> namespace:</p>
+<pre><code class="language-bash">oc -n ibm-cpd-operators get deployments
+NAME                                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ibm-cpd-ae-operator                                    1/1     1            1           31m
+</code></pre>
+<p>In the <strong>ibm-cpd</strong> namespace:</p>
+<pre><code class="language-bash">oc -n ibm-cpd get analyticsengine,deployments
+NAME                                                    VERSION   RECONCILED   STATUS      AGE
+analyticsengine.ae.cpd.ibm.com/analyticsengine-sample   5.0.0     5.0.0        Completed   31m
+
+NAME                                                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/spark-hb-br-recovery                         1/1     1            1           11m
+deployment.apps/spark-hb-control-plane                       1/1     1            1           19m
+deployment.apps/spark-hb-create-trust-store                  1/1     1            1           25m
+deployment.apps/spark-hb-deployer-agent                      1/1     1            1           19m
+deployment.apps/spark-hb-nginx                               1/1     1            1           19m
+deployment.apps/spark-hb-register-hb-dataplane               1/1     1            1           10m
+deployment.apps/spark-hb-ui                                  1/1     1            1           19m
+
+</code></pre>
+<h3 id="cognos-analytics">Cognos Analytics<a class="headerlink" href="#cognos-analytics" title="Permanent link">¤</a></h3>
+<p>Subscriptions related to Cognos Analytics (in the <strong>ibm-cpd-operators</strong> namespace):</p>
+<ul>
+<li><strong>cpd-platform-operator</strong></li>
+<li><strong>ibm-ca-operator-controller-manager</strong></li>
+</ul>
+<p>Cognos Analytics is made up of many moving parts across multiple namespaces.</p>
+<p>In the <strong>ibm-cpd-operators</strong> namespace:</p>
+<pre><code class="language-bash">oc -n ibm-cpd-operators get deployments
+NAME                                                   READY   UP-TO-DATE   AVAILABLE   AGE
+ibm-ca-operator-controller-manager                     1/1     1            1           19m
+</code></pre>
+<p>In the <strong>ibm-cpd</strong> namespace:</p>
+<pre><code class="language-bash">oc -n ibm-cpd get caservice,deployments
+NAME                                   AGE
+caservice.ca.cpd.ibm.com/ca-addon-cr   19m
+
+NAME                                                                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cognos-analytics-cognos-analytics-addon                      1/1     1            1           9m17s
+
+</code></pre>
+<h2 id="role-variables-installation">Role Variables - Installation<a class="headerlink" href="#role-variables-installation" title="Permanent link">¤</a></h2>
+<h3 id="cpd_service_name">cpd_service_name<a class="headerlink" href="#cpd_service_name" title="Permanent link">¤</a></h3>
+<p>Name of the service to install, supported values are: <code>wsl</code>, <code>wml</code>, <code>spark</code>, and <code>ca</code></p>
+<ul>
+<li><strong>Required</strong></li>
+<li>Environment Variable: <code>CPD_SERVICE_NAME</code></li>
+<li>Default Value: None</li>
+</ul>
+<h3 id="cpd_product_version">cpd_product_version<a class="headerlink" href="#cpd_product_version" title="Permanent link">¤</a></h3>
+<p>The product version (also known as operand version) of this service to install.</p>
+<ul>
+<li><strong>Required</strong></li>
+<li>Environment Variable: <code>CPD_PRODUCT_VERSION</code></li>
+<li>Default Value: Defined by the installed MAS catalog version</li>
+</ul>
+<h3 id="cpd_service_storage_class">cpd_service_storage_class<a class="headerlink" href="#cpd_service_storage_class" title="Permanent link">¤</a></h3>
+<p>This is used to set <code>spec.storageClass</code> in all CPD services that uses file storage class (read-write-many RWX).</p>
+<ul>
+<li><strong>Required</strong>, unless IBMCloud storage classes are available.</li>
+<li>Environment Variable: <code>CPD_SERVICE_STORAGE_CLASS</code></li>
+<li>Default Value: Auto determined if default storage classes are provided and available by your cloud provider. i.e <code>ibmc-file</code> for IBM Cloud, <code>efs</code> for AWS.</li>
+</ul>
+<h3 id="cpd_service_block_storage_class">cpd_service_block_storage_class<a class="headerlink" href="#cpd_service_block_storage_class" title="Permanent link">¤</a></h3>
+<p>This is used to set <code>spec.blockStorageClass</code> in all CPD services that uses block storage class (read-write-only RWO).</p>
+<ul>
+<li><strong>Required</strong>, unless IBMCloud storage classes are available.</li>
+<li>Environment Variable: <code>CPD_SERVICE_BLOCK_STORAGE_CLASS</code></li>
+<li>Default Value: Auto determined if default storage classes are provided and available by your cloud provider. i.e <code>ibmc-block</code> for IBM Cloud, <code>gp2</code> for AWS.</li>
+</ul>
+<h3 id="cpd_instance_namespace">cpd_instance_namespace<a class="headerlink" href="#cpd_instance_namespace" title="Permanent link">¤</a></h3>
+<p>Namespace where the CP4D instance is deployed.</p>
+<ul>
+<li>Optional</li>
+<li>Environment Variable: <code>CPD_INSTANCE_NAMESPACE</code></li>
+<li>Default Value: <code>ibm-cpd</code></li>
+</ul>
+<h3 id="cpd_operator_namespace">cpd_operator_namespace<a class="headerlink" href="#cpd_operator_namespace" title="Permanent link">¤</a></h3>
+<p>Namespace where the CP4D instance is deployed.</p>
+<ul>
+<li>Optional</li>
+<li>Environment Variable: <code>CPD_OPERATORS_NAMESPACE</code></li>
+<li>Default Value: <code>ibm-cpd-operators</code></li>
+</ul>
+<h3 id="cpd_admin_username">cpd_admin_username<a class="headerlink" href="#cpd_admin_username" title="Permanent link">¤</a></h3>
+<p>The CP4D Admin username to authenticate with CP4D APIs. If you didn't change the initial admin username after installing CP4D then you don't need to provide this.</p>
+<ul>
+<li>Optional</li>
+<li>Environment Variable: <code>CPD_ADMIN_USERNAME</code></li>
+<li>Default Value:</li>
+<li><code>admin</code> (CPD 4.6)</li>
+<li><code>cpadmin</code> (CPD 4.8 and newer)</li>
+</ul>
+<h3 id="cpd_admin_password">cpd_admin_password<a class="headerlink" href="#cpd_admin_password" title="Permanent link">¤</a></h3>
+<p>The CP4D Admin User password to call CP4D API to provision Discovery Instance. If you didn't change the initial admin password after CP4D install, you don't need to provide it.  The initial admin user password for <code>admin</code> or <code>cpdamin</code> will be used.</p>
+<ul>
+<li>Optional</li>
+<li>Environment Variable: <code>CPD_ADMIN_PASSWORD</code></li>
+<li>Default Value:<ul>
+<li>CPD 4.6: Looked up from the <code>admin-user-details</code> secret in the <code>cpd_instance_namespace</code> namespace</li>
+<li>CPD 4.8 and newer: Looked up from the <code>ibm-iam-bindinfo-platform-auth-idp-credentials</code> secret in the <code>cpd_instance_namespace</code> namespace</li>
+</ul>
+</li>
+</ul>
+<h3 id="cpd_service_scale_config">cpd_service_scale_config<a class="headerlink" href="#cpd_service_scale_config" title="Permanent link">¤</a></h3>
+<p>Adjust and scale the resources for your Cloud Pak for Data services to increase processing capacity.
+For more information, refer to <a href="https://www.ibm.com/docs/en/cloud-paks/cp-data/4.6.x?topic=services-manually-scaling">Managing resources</a> in IBM Cloud Pak for Data documentation.</p>
+<ul>
+<li>Optional</li>
+<li>Environment Variable: <code>CPD_SERVICE_SCALE_CONFIG</code></li>
+<li>Default Value: <code>small</code></li>
+</ul>
+<h2 id="role-variables-watson-studio">Role Variables - Watson Studio<a class="headerlink" href="#role-variables-watson-studio" title="Permanent link">¤</a></h2>
+<h3 id="cpd_wsl_project_name">cpd_wsl_project_name<a class="headerlink" href="#cpd_wsl_project_name" title="Permanent link">¤</a></h3>
+<p>Stores the CP4D Watson Studio Project name that can be used to configure HP Utilities application in MAS.</p>
+<ul>
+<li>Optional, only supported when <code>cpd_service_name</code> = <code>wsl</code></li>
+<li>Environment Variable: <code>CPD_WSL_PROJECT_NAME</code></li>
+<li>Default Value: <code>wsl-mas-${mas_instance_id}-hputilities</code></li>
+</ul>
+<h3 id="cpd_wsl_project_description">cpd_wsl_project_description<a class="headerlink" href="#cpd_wsl_project_description" title="Permanent link">¤</a></h3>
+<p>Optional - Stores the CP4D Watson Studio Project description that can be used to configure HP Utilities application in MAS.</p>
+<ul>
+<li>Optional, only supported when <code>cpd_service_name</code> = <code>wsl</code></li>
+<li>Environment Variable: <code>CPD_WSL_PROJECT_DESCRIPTION</code></li>
+<li>Default Value: <code>Watson Studio Project for Maximo Application Suite</code></li>
+</ul>
+<h2 id="role-variables-mas-configuration-generation">Role Variables - MAS Configuration Generation<a class="headerlink" href="#role-variables-mas-configuration-generation" title="Permanent link">¤</a></h2>
+<h3 id="mas_instance_id">mas_instance_id<a class="headerlink" href="#mas_instance_id" title="Permanent link">¤</a></h3>
+<p>The instance ID of Maximo Application Suite that a generated configuration will target.  If this or <code>mas_config_dir</code> are not set then the role will not generate a resource template.</p>
+<ul>
+<li>Optional, only supported when <code>cpd_service_name</code> = <code>wsl</code></li>
+<li>Environment Variable: <code>MAS_INSTANCE_ID</code></li>
+<li>Default Value: None</li>
+</ul>
+<h3 id="mas_config_dir">mas_config_dir<a class="headerlink" href="#mas_config_dir" title="Permanent link">¤</a></h3>
+<p>Local directory to save the generated resource definition.  This can be used to manually configure a MAS instance, or used as an input to the <a href="../suite_config/">suite_config</a> role. If this or <code>mas_instance_id</code> are not set then the role will not generate a resource template.</p>
+<ul>
+<li>Optional, only supported when <code>cpd_service_name</code> = <code>wsl</code></li>
+<li>Environment Variable: <code>MAS_CONFIG_DIR</code></li>
+<li>Default Value: None</li>
+</ul>
+<h2 id="example-playbook">Example Playbook<a class="headerlink" href="#example-playbook" title="Permanent link">¤</a></h2>
+<h3 id="install-watson-studio-on-cpd-513">Install Watson Studio on CPD 5.1.3<a class="headerlink" href="#install-watson-studio-on-cpd-513" title="Permanent link">¤</a></h3>
+<pre><code class="language-yaml">- hosts: localhost
+  any_errors_fatal: true
+  vars:
+    cpd_product_version: 5.1.3
+    cpd_service_storage_class: ibmc-file-gold-gid
+    cpd_service_name: wsl
+  roles:
+    - ibm.mas_devops.cp4d_service
+</code></pre>
+<h3 id="install-watson-studio-on-cpd-520">Install Watson Studio on CPD 5.2.0<a class="headerlink" href="#install-watson-studio-on-cpd-520" title="Permanent link">¤</a></h3>
+<pre><code class="language-yaml">- hosts: localhost
+  any_errors_fatal: true
+  vars:
+    cpd_product_version: 5.2.0
+    cpd_service_storage_class: ibmc-file-gold-gid
+    cpd_service_name: wsl
+  roles:
+    - ibm.mas_devops.cp4d_service
+</code></pre>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">¤</a></h2>
+<p>EPL-2.0</p>
+            
+          </div>
+
+          <!-- Navigation footer (prev/next) -->
+<nav class="md-footer-nav" aria-label="Footer navigation">
+  <div class="md-footer-nav__inner">
+    <a href="../cp4d/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+      <div class="md-footer-nav__direction">
+        <svg class="md-footer-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+        </svg>
+        <span>Previous</span>
+      </div>
+      <div class="md-footer-nav__title">
+        <span class="md-footer-nav__title-text">cp4d</span>
+      </div>
+    </a>
+    <a href="../db2/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+      <div class="md-footer-nav__direction">
+        <span>Next</span>
+        <svg class="md-footer-nav__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+        </svg>
+      </div>
+      <div class="md-footer-nav__title">
+        <span class="md-footer-nav__title-text">db2</span>
+      </div>
+    </a>
+  </div>
+</nav>
+        </article>
+      </div>
+
+      <!-- Right sidebar - Table of Contents -->
+      <aside class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<nav class="md-sidebar md-sidebar--secondary" aria-label="Table of contents">
+  <div class="md-sidebar__scrollwrap">
+    <div class="md-sidebar__inner">
+      <div class="md-toc">
+        <div class="md-toc__title">On this page</div>
+        <ul class="md-toc__list">
+              <li class="md-toc__item">
+                <a href="#role-variables-general" class="md-toc__link" data-md-level="1">
+                  Role Variables - General
+                </a>
+                  <ul class="md-toc__list">
+                      <li class="md-toc__item">
+                        <a href="#watson-studio" class="md-toc__link" data-md-level="2">
+                          Watson Studio
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#watson-machine-learning" class="md-toc__link" data-md-level="2">
+                          Watson Machine Learning
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#analytics-engine" class="md-toc__link" data-md-level="2">
+                          Analytics Engine
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cognos-analytics" class="md-toc__link" data-md-level="2">
+                          Cognos Analytics
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="md-toc__item">
+                <a href="#role-variables-installation" class="md-toc__link" data-md-level="1">
+                  Role Variables - Installation
+                </a>
+                  <ul class="md-toc__list">
+                      <li class="md-toc__item">
+                        <a href="#cpd_service_name" class="md-toc__link" data-md-level="2">
+                          cpd_service_name
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_product_version" class="md-toc__link" data-md-level="2">
+                          cpd_product_version
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_service_storage_class" class="md-toc__link" data-md-level="2">
+                          cpd_service_storage_class
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_service_block_storage_class" class="md-toc__link" data-md-level="2">
+                          cpd_service_block_storage_class
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_instance_namespace" class="md-toc__link" data-md-level="2">
+                          cpd_instance_namespace
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_operator_namespace" class="md-toc__link" data-md-level="2">
+                          cpd_operator_namespace
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_admin_username" class="md-toc__link" data-md-level="2">
+                          cpd_admin_username
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_admin_password" class="md-toc__link" data-md-level="2">
+                          cpd_admin_password
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_service_scale_config" class="md-toc__link" data-md-level="2">
+                          cpd_service_scale_config
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="md-toc__item">
+                <a href="#role-variables-watson-studio" class="md-toc__link" data-md-level="1">
+                  Role Variables - Watson Studio
+                </a>
+                  <ul class="md-toc__list">
+                      <li class="md-toc__item">
+                        <a href="#cpd_wsl_project_name" class="md-toc__link" data-md-level="2">
+                          cpd_wsl_project_name
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#cpd_wsl_project_description" class="md-toc__link" data-md-level="2">
+                          cpd_wsl_project_description
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="md-toc__item">
+                <a href="#role-variables-mas-configuration-generation" class="md-toc__link" data-md-level="1">
+                  Role Variables - MAS Configuration Generation
+                </a>
+                  <ul class="md-toc__list">
+                      <li class="md-toc__item">
+                        <a href="#mas_instance_id" class="md-toc__link" data-md-level="2">
+                          mas_instance_id
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#mas_config_dir" class="md-toc__link" data-md-level="2">
+                          mas_config_dir
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="md-toc__item">
+                <a href="#example-playbook" class="md-toc__link" data-md-level="1">
+                  Example Playbook
+                </a>
+                  <ul class="md-toc__list">
+                      <li class="md-toc__item">
+                        <a href="#install-watson-studio-on-cpd-513" class="md-toc__link" data-md-level="2">
+                          Install Watson Studio on CPD 5.1.3
+                        </a>
+                      </li>
+                      <li class="md-toc__item">
+                        <a href="#install-watson-studio-on-cpd-520" class="md-toc__link" data-md-level="2">
+                          Install Watson Studio on CPD 5.2.0
+                        </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="md-toc__item">
+                <a href="#license" class="md-toc__link" data-md-level="1">
+                  License
+                </a>
+              </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+      </aside>
+    </div>
+
+    <!-- Footer - Full width outside container -->
+    <footer class="md-footer">
+      Built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/durera/mkdocs-carbon">Carbon theme</a>
+    </footer>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": false, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>
